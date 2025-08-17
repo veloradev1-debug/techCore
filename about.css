@@ -1,0 +1,344 @@
+/* About.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #222;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: default;
+}
+
+.logo {
+    color: #007bff;
+}
+
+.logo .core {
+    color: #222;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.nav-links li a {
+    color: #222;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.3rem;
+}
+
+/* Nav buttons with background icons */
+.icon-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: grayscale(40%);
+    transition: filter 0.3s;
+    background-color: transparent;
+}
+
+.icon-btn:hover,
+.icon-btn:focus {
+    filter: none;
+    outline: none;
+}
+
+.search-btn {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/622/622669.png");
+}
+
+.user-btn {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1077/1077114.png");
+}
+
+.cart-btn {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1170/1170678.png");
+}
+
+
+.mission-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.mission-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    text-shadow: #6a6a6a 1px 3px 3px;
+}
+
+.mission-text {
+    max-width: 700px;
+    margin: 0 auto 2.4rem auto;
+    color: #000000;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.mission-image-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 12px 20px -10px;
+}
+
+.mission-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.features-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    color: #000000;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+}
+
+.feature-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #121c2b;
+    color: #c9d1d9;
+    padding: 3rem 1rem 1.5rem;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+.footer-main {
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-logo-desc {
+    max-width: 320px;
+}
+
+.footer-logo-desc .logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #007BFF;
+}
+
+.footer-logo-desc p {
+    line-height: 1.5;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.footer-links {
+    flex: 1 1 320px;
+    display: flex;
+    gap: 12rem;
+    flex-wrap: wrap;
+    font-size: 15px;
+}
+
+.footer-links>div h3 {
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: #007BFF;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: #bed6e5;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover,
+.footer-links ul li a:focus {
+    color: #007BFF;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.social {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    filter: brightness(0.85);
+    transition: filter 0.3s ease;
+}
+
+.social:hover,
+.social:focus {
+    filter: brightness(1.3);
+    outline: none;
+}
+
+.social.twitter {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733579.png');
+}
+
+.social.facebook {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733547.png');
+}
+
+.social.instagram {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png');
+}
+
+/* Footer bottom */
+.footer-bottom {
+    text-align: center;
+    color: #007BFF;
+    font-weight: 600;
+    border-top: 1px solid #1f2a3c;
+    padding-top: 1rem;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .nav-list {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .features-section {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 2.5rem;
+    }
+
+    .feature p {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 0.5rem;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .nav-list {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-icons {
+        order: 2;
+        gap: 0.7rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .mission-title {
+        font-size: 1.8rem;
+    }
+
+    .mission-text {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .features-section {
+        gap: 1.6rem;
+    }
+
+    .feature h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .feature p {
+        font-size: 0.9rem;
+    }
+}
