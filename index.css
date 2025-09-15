@@ -82,8 +82,8 @@ header {
 
 /* Nav buttons with background icons */
 .icon-btn {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     border: none;
     cursor: pointer;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ header {
     filter: grayscale(40%);
     transition: filter 0.3s;
     background-color: transparent;
-    margin: 2px;
+    
 }
 
 .icon-btn:hover,
@@ -112,6 +112,15 @@ header {
 .cart-btn {
     background-image: url("https://cdn-icons-png.flaticon.com/512/1170/1170678.png");
 }
+/* Main content flex layout */
+.main-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    gap: 2rem;
+    padding: 0 1rem;
+    flex: 1 0 auto;
+}
 
 .hero {
     display: flex;
@@ -119,13 +128,21 @@ header {
     justify-content: space-between;
     background-color: #121212;
     color: white;
-    padding: 4rem 2rem;
+    padding: 5rem 3rem;
     max-width: 1200px;
     margin: 2rem auto;
     border-radius: 8px;
     gap: 2rem;
 }
-
+.hero-image {
+        display: none;
+    }
+    .hero {
+    background: 
+      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* طبقة شفافة سوداء */
+      url("image/hero1.jpg") center/cover no-repeat;
+    color: white;
+  }
 .hero-text h1 {
     font-size: 2.9rem;
     font-weight: 900;
@@ -446,42 +463,299 @@ footer {
     padding-top: 1rem;
     user-select: none;
 }
+/* زر الهامبورغر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 101; /* فوق القائمة */
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #222;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
 
 /* Responsive */
-@media (max-width: 980px) {
-    .hero {
+@media (max-width: 1100px) {
+    .main-content {
         flex-direction: column;
-        text-align: center;
+        gap: 1.2rem;
     }
 
-    .hero-text,
-    .hero-image {
-        width: 100%;
+    .sidebar {
+        flex: 1 0 auto;
+        max-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
     }
 
-    .products-container {
-        justify-content: center;
+    .products-section {
+        max-width: 100%;
     }
 
-    .navbar {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .footer-links {
+        gap: 6rem;
+        justify-content: flex-start;
         flex-wrap: wrap;
+    }
+}
+@media (max-width: 965px) {
+    .footer-links {
+        gap: 1rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+/* For screens up to 768px wide */
+@media (max-width: 768px) {
+     .product-card {
+    background: #fff;
+    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    font-size: 14px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 0.05);
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(107, 107, 107, 0.6);
+    transition: background-color 0.3s ease-in-out;
+}
+.products-grid {
+        display: grid;
+  grid-template-columns: repeat(2, 1fr); /* صف فيه 2 */
+  gap: 10px; /* مسافة بين الكروت */
+    }
+
+    .buy-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-icons {
+
+        gap: 2rem;
+        font-size: 3rem;
+    }
+
+    .icons-btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        border: none;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: grayscale(40%);
+        transition: filter 0.3s;
+        background-color: transparent;
+        margin: 2px;
+
+    }
+    .hamburger {
+        display: flex;
     }
 
     .nav-links {
-        margin-top: 0.5rem;
-        flex-basis: 100%;
-        justify-content: center;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .products-container {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
         flex-direction: column;
-        align-items: center;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .category-card {
-        width: 90vw;
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
+    }
+
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
+    }
+    .footer-links {
+        gap: 3rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
 }
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* For screens up to 480px wide */
+@media (max-width: 480px) {
+    .hero-image {
+        display: none;
+    }
+    .hero {
+    background: 
+      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* طبقة شفافة سوداء */
+      url("image/hero1.jpg") center/cover no-repeat;
+    color: white;
+    padding: 4rem 1rem;
+  }
+ .products-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* عمود واحد */
+    gap: 0.8rem !important;
+    padding: 0.8rem !important;
+  }
+
+  .product-card {
+    width: 100% !important;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .product-card img {
+    height: 160px;
+    object-fit: contain;
+  }
+
+  .buy-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+    .top-banner {
+        background-color: #007bff;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 0.4rem 1rem;
+        font-weight: 100%;
+        font-size: 1rem;
+    }
+
+    header {
+
+        font-weight: 100%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .navbar {
+        max-width: 100%;
+        margin: auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-weight: 100%;
+        font-size: 1.4rem;
+        cursor: default;
+    }
+
+    .nav-links {
+         position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
+    }
+
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
+    }
+     
+}
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+    .nav-icons {
+
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .icon-btn {
+        width: 1.2rem;
+        height: 1.2rem;
+        border: none;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: grayscale(40%);
+        transition: filter 0.3s;
+        background-color: transparent;
+        margin: 2px;
+
+    }
+@media (max-width: 350px) {
+.hero {
+   
+    padding: 2rem 1rem;
+  }
+     }

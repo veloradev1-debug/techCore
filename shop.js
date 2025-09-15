@@ -89,3 +89,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial filter to set products display correctly
     filterProducts();
 });  
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('open');
+});
+const filterToggle = document.getElementById('filterToggle');
+const sidebar = document.querySelector('.sidebar');
+
+// فتح/إغلاق عند الضغط على الزر
+filterToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sidebar.classList.toggle('active');
+});
+
+// إغلاق عند الضغط خارج الفلتر
+document.addEventListener('click', (e) => {
+  if (sidebar.classList.contains('active')) {
+    if (!sidebar.contains(e.target) && e.target !== filterToggle) {
+      sidebar.classList.remove('active');
+    }
+  }
+});
+
+// 🟢 دعم السحب (Swipe) لإغلاق الفلتر
+let touchStartX = 0;
+let touchEndX = 0;
+
+sidebar.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+sidebar.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+
+  // إذا السحب كان من اليسار لليمين وبمسافة كافية (> 70px مثلاً)
+  if (touchEndX - touchStartX > 70) {
+    sidebar.classList.remove('active');
+  }
+});
+const closeBtn = document.querySelector('.close-filter');
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => sidebar.classList.remove('active'));
+}

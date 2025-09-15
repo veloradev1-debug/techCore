@@ -1,4 +1,4 @@
-/* Reset and base */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,8 @@
 }
 
 body {
-    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
     color: #222;
     line-height: 1.5;
     min-height: 100vh;
@@ -21,7 +22,15 @@ a {
     color: inherit;
 }
 
-/* Navbar */
+.top-banner {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
 header {
     background-color: white;
     box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
@@ -45,7 +54,7 @@ header {
     cursor: default;
 }
 
-.logo {
+.logo .tech {
     color: #007bff;
 }
 
@@ -77,7 +86,7 @@ header {
 
 /* Nav buttons with background icons */
 .icon-btn {
-    width: 24px;
+     width: 24px;
     height: 24px;
     border: none;
     cursor: pointer;
@@ -87,6 +96,7 @@ header {
     filter: grayscale(40%);
     transition: filter 0.3s;
     background-color: transparent;
+    
 }
 
 .icon-btn:hover,
@@ -120,25 +130,28 @@ header {
 
 /* Sidebar styling */
 .sidebar {
-    flex: 0 0 250px;
-    border: 1px solid #ddd;
+    flex: 0 0 320px;
+    border: 1px solid #ffffff;
     border-radius: 8px;
+    width: 100%;
     padding: 1.6rem 1.4rem;
-    background: #fafafa;
-    user-select: none;
+    background: #ffffff;
+   
+
 }
 
 .filter-section+.filter-section {
-    margin-top: 2.5rem;
+    margin-top:1rem;
 }
 
 .filter-section h3 {
     font-weight: 700;
-    font-size: 1.15rem;
+    position: sticky;
     margin-bottom: 1rem;
     color: #444;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.35rem;
+
 }
 
 .filter-list {
@@ -152,19 +165,25 @@ header {
     cursor: pointer;
     user-select: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     display: flex;
     gap: 0.6rem;
     align-items: center;
     color: #333;
-}
+      white-space: nowrap;      /* يمنع كسر السطر */
+    }
 
 .filter-list input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
 }
-
+ .filter-toggle {
+    display: none;
+  }
+.close-filter {
+    display: none;
+  }
 /* Price Range */
 .price-range {
     display: flex;
@@ -174,7 +193,8 @@ header {
 
 .price-range label {
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.5rem;
+
     display: flex;
     justify-content: space-between;
     color: #444;
@@ -183,8 +203,8 @@ header {
 .price-range input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
-    width: 100%;
-    height: 6px;
+    width: 200px;
+    height: 10px;
     border-radius: 5px;
     background: #ddd;
     outline: none;
@@ -213,10 +233,10 @@ header {
     position: relative;
     z-index: 0;
     overflow: visible;
-    /* يسمح للعناصر الموسعة بالظهور */
+    /* ÙŠØ³Ù…Ø­ Ù„Ù„Ø¹Ù†Ø§ØµØ± Ø§Ù„Ù…ÙˆØ³Ø¹Ø© Ø¨Ø§Ù„Ø¸Ù‡ÙˆØ± */
 }
 
-/* ضمن .products-grid استخدم: */
+/* Ø¶Ù…Ù† .products-grid Ø§Ø³ØªØ®Ø¯Ù…: */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -226,10 +246,10 @@ header {
 
 .product-card {
     position: relative;
-    /* لكي تسمح z-index للعمل */
+    /* Ù„ÙƒÙŠ ØªØ³Ù…Ø­ z-index Ù„Ù„Ø¹Ù…Ù„ */
     z-index: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    grid-template-columns: repeat(4, 1fr);
+    
     gap: 1rem;
     display: flex;
     flex-direction: column;
@@ -240,7 +260,7 @@ header {
     transform: scale(1.05);
     box-shadow: 0 16px 30px rgba(0, 123, 255, 0.4);
     z-index: 10;
-    /* رفع الترتيب الطبقي للظهور فوق العناصر المجاورة */
+    /* Ø±ÙØ¹ Ø§Ù„ØªØ±ØªÙŠØ¨ Ø§Ù„Ø·Ø¨Ù‚ÙŠ Ù„Ù„Ø¸Ù‡ÙˆØ± ÙÙˆÙ‚ Ø§Ù„Ø¹Ù†Ø§ØµØ± Ø§Ù„Ù…Ø¬Ø§ÙˆØ±Ø© */
 }
 
 .product-image {
@@ -432,45 +452,198 @@ footer {
     padding-top: 1rem;
     user-select: none;
 }
+/* زر الهامبورغر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 101; /* فوق القائمة */
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #222;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
 
 /* Responsive adjustments for Shop page */
 
 /* For screens up to 1100px wide */
 @media (max-width: 1100px) {
-    .main-content {
-        flex-direction: column;
-        gap: 3rem;
-    }
+ .main-content {
+    display: flex;
+    flex-direction: column; /* يجعل الفلتر فوق المنتجات */
+    align-items: stretch;
+    gap: 2rem;
+  }
+ 
 
-    .sidebar {
-        flex: 1 0 auto;
-        max-width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 2rem;
-        margin-bottom: 2rem;
-    }
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 30%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    padding: 2rem;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
 
+  .sidebar.active {
+    left: 0;
+  }
+
+  .filter-toggle {
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  .products-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* ثلاث أعمدة بدل 4 */
+    gap: 1rem;
+  }
+  .products-section {
+    width: 100%;
+  }
+
+  .products-section {
+    width: 100%;           /* المنتجات أيضًا بعرض كامل */
+  }
     .products-section {
         max-width: 100%;
     }
 
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
-        gap: 1rem;
-    }
+    
 
     .footer-links {
-        gap: 1.2rem;
+        gap: 6rem;
         justify-content: flex-start;
         flex-wrap: wrap;
     }
+   .close-filter {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 }
 
-/* For screens up to 768px wide */
+
+  @media (max-width: 965px) and (min-width: 481px) {
+    .footer-links {
+        gap: 1rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;             /* يختفي برا الشاشة */
+        width: 60%;              /* أضيق من الديسكتوب */
+        max-width: 300px;        /* يوقف عند 300px */
+        height: 100%;            /* طول الشاشة */
+        background: #fff;
+        z-index: 1000;
+        padding: 1rem;           /* فراغات معقولة */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        transition: left 0.3s ease;
+        overflow-y: auto;        /* سكرول لو المحتوى طويل */
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* Filter Section */
+    .filter-section {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .filter-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .filter-list li label {
+        font-size: 0.95rem;
+    }
+
+    /* Price Range */
+    .price-range {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .price-range label {
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        color: #444;
+    }
+
+    .price-range input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;             /* ياخذ العرض كامل */
+        height: 9px;
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .price-range input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #007BFF;
+        cursor: pointer;
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+        transition: background-color 0.3s;
+    }
+
+    .price-range input[type="range"]:active::-webkit-slider-thumb {
+        background-color: #0056b3;
+    }
+}
+
+  
+
+
+
 @media (max-width: 768px) {
     .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
+         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
 
@@ -478,31 +651,271 @@ footer {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
     }
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
+    }
+
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
+    }
+    .footer-links {
+        gap: 3rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+  
 }
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
 
 /* For screens up to 480px wide */
 @media (max-width: 480px) {
+ .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;             /* يختفي خارج الشاشة */
+        width: 70%;              /* يخلي العرض أصغر في الموبايل */
+        max-width: 260px;        /* يمنع يكبر زيادة */
+        height: 100%;            /* يغطي طول الشاشة */
+        background: #fff;
+        z-index: 1000;
+        padding: 0.8rem;         /* تقليل الحواف الداخلية */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        transition: left 0.3s ease;
+        overflow-y: auto;        /* لو المحتوى طويل ينزل بسكرول */
+    }
+
+    .sidebar.active {
+        left: 0;                 /* يظهر عند الضغط */
+    }
+
+    /* Filter section */
+    .filter-section {
+        width: 100%;             /* ياخذ كل العرض داخل الفلتر */
+        padding: 0.6rem;         /* يقلل الفراغات الداخلية */
+        margin-bottom: 1rem;     /* مسافة بسيطة بين الأقسام */
+        font-size: 0.9rem;       /* يصغر حجم النصوص */
+    }
+
+    .filter-section h3 {
+        font-size: 1rem;         /* عنوان القسم أصغر شوي */
+    }
+
+    .filter-list li label {
+        font-size: 0.85rem;      /* النصوص ما تكسر وتبقى مقروءة */
+    }
+    @media (max-width: 480px) {
+    /* Price Range */
+    .price-range {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;            /* تقليل الفراغ بين العناصر */
+    }
+
+    .price-range label {
+        font-size: 0.85rem;     /* يصغر النص */
+        display: flex;
+        justify-content: space-between;
+        color: #444;
+    }
+
+    .price-range input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;            /* ياخذ كامل عرض الفلتر */
+        height: 8px;            /* شريط أرفع شوي */
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .price-range input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;            /* حجم الدائرة أصغر */
+        height: 16px;
+        border-radius: 50%;
+        background: #007BFF;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        transition: background-color 0.3s;
+    }
+
+    .price-range input[type="range"]:active::-webkit-slider-thumb {
+        background-color: #0056b3;
+    }
+
+
+   .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* عمودين */
+    gap: 0.6rem; /* خفف الفراغات */
+  }
+
+  .product-card {
+    width: auto !important;   /* خليه يتأقلم مع العمود */
+  }
+
+  .product-image {
+    height: 140px; /* صغّر صورة المنتج */
+  }
+
+  .product-title {
+    font-size: 0.9rem;
+  }
+
+  .product-price {
+    font-size: 0.9rem;
+  }
+
+  .buy-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+    .top-banner {
+        background-color: #007bff;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 0.4rem 1rem;
+        font-weight: 100%;
+        font-size: 1rem;
+    }
+
+    header {
+
+        font-weight: 100%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .navbar {
+        max-width: 100%;
+        margin: auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-weight: 100%;
+        font-size: 1.4rem;
+        cursor: default;
+    }
+
     .nav-links {
-        display: none;
-        /* Hide nav links for smaller screens, you can add a hamburger menu here */
+         position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .nav-icons {
-        gap: 0.8rem;
+    
+    .hamburger {
+        display: flex;
     }
 
-    .product-card {
-        width: 100% !important;
+    .nav-links {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 4, 1fr));
-        gap: 1rem;
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
     }
 
-    .sidebar {
-        padding: 1rem 0.5rem;
-        border: none;
-        margin-bottom: 1.5rem;
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
     }
 }
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+    .nav-icons {
+
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .icon-btn {
+        width: 1.2rem;
+        height: 1.2rem;
+        border: none;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: grayscale(40%);
+        transition: filter 0.3s;
+        background-color: transparent;
+        margin: 2px;
+
+    }
+     }
+     
+    
+   
+    
+    
+
+
+    
+     

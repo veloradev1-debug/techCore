@@ -5,31 +5,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TechCore - Shop</title>
-    <link rel="stylesheet" href="Shop.css" />
+    <link rel="stylesheet" href="shop.css" />
 </head>
 
 <body>
 
+   
     <header>
         <nav class="navbar">
-            <div class="logo">Tech<span class="core">Core</span></div>
+            <div class="logo">
+                <span class="tech">Tech</span><span class="core">Core</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="shop.html">Shop</a></li>
 
                 <li><a href="about.html">About Us</a></li>
+
                 <li><a href="contact.html">Contact</a></li>
+
+
             </ul>
             <div class="nav-icons">
-                <button aria-label="Search" class="icon-btn search-btn"></button>
+                <a href="shop.html" class="icon-btn search-btn"></a>
                 <button aria-label="User Account" class="icon-btn user-btn"></button>
                 <button aria-label="Shopping Cart" class="icon-btn cart-btn"></button>
             </div>
+            <!-- زر الهامبورغر -->
+<div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
         </nav>
+
+
     </header>
 
+
     <main class="main-content">
+        <button id="filterToggle" class="filter-toggle">☰ filter</button>
         <aside class="sidebar">
+            <button class="close-filter">✖</button>
             <section class="filter-section">
                 <h3>Categories</h3>
                 <ul class="filter-list" id="categoryFilter">
@@ -44,7 +62,7 @@
                 <h3>Brands</h3>
                 <ul class="filter-list" id="brandFilter">
                     <li><label><input type="checkbox" value="QuantumX" /> Acer</label></li>
-                    <li><label><input type="checkbox" value="HyperCore" /> HyperCore</label></li>
+                    <li><label><input type="checkbox" value="ASSUS" /> assus</label></li>
                     <li><label><input type="checkbox" value="AuraGlow" /> AuraGlow</label></li>
                     <li><label><input type="checkbox" value="Chrono-Shift" /> Chrono-Shift</label></li>
                 </ul>
@@ -81,7 +99,7 @@
                 </article>
 
                 <article class="product-card" id="p-hypercorei9" data-category="Internal Components"
-                    data-brand="HyperCore" data-price="599">
+                    data-brand="ASSUS" data-price="599">
                     <div class="product-image">
                         <img src="image/ASUS ROG Swift PG259QN 24.5″ FHD.png" alt="ASUS ROG Swift PG259QN 24.5″ FHD" />
                     </div>
@@ -96,7 +114,7 @@
                 </article>
 
                 <article class="product-card" id="p-auraglow32" data-category="Internal Components"
-                    data-brand="AuraGlow" data-price="189">
+                    data-brand="ASSUS" data-price="189">
                     <div class="product-image">
                         <img src="image/ASUS ROG Strix X670E-F Gaming WiFi (AMD AM5).jpg"
                             alt="ASUS ROG Strix X670E-F Gaming WiFi (AMD AM5)" />
@@ -110,7 +128,7 @@
                         <button class="buy-btn" data-product-code="auraglow32">Buy Now</button>
                     </div>
                 </article>
-                <article class="product-card" id="p-auraglow32" data-category="Internal Components"
+                <article class="product-card" id="p-auraglow32" data-category="Accessories"
                     data-brand="AuraGlow" data-price="189">
                     <div class="product-image">
                         <img src="image/Corsair K100 RGB.jpg" alt="Corsair K100 RGB" />
@@ -140,7 +158,7 @@
                         <button class="buy-btn" data-product-code="chronoshiftssd">Buy Now</button>
                     </div>
                 </article>
-                <article class="product-card" id="p-chronoshiftssd" data-category="Internal Components"
+                <article class="product-card" id="p-chronoshiftssd" data-category="Accessories"
                     data-brand="Chrono-Shift" data-price="249">
                     <div class="product-image">
                         <img src="image/Logitech G915 TKL.webp" alt="Logitech G915 TKL" />
@@ -168,7 +186,7 @@
                         <button class="buy-btn" data-product-code="chronoshiftssd">Buy Now</button>
                     </div>
                 </article>
-                <article class="product-card" id="p-chronoshiftssd" data-category="Internal Components"
+                <article class="product-card" id="p-chronoshiftssd" data-category="Accessories"
                     data-brand="Chrono-Shift" data-price="249">
                     <div class="product-image">
                         <img src="image/Razer DeathAdder V3 Pro.jpg" alt="Razer DeathAdder V3 Pro" />

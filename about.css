@@ -1,4 +1,4 @@
-/* About.css */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,10 @@
 }
 
 body {
-    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
     color: #222;
     line-height: 1.5;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
 }
 
 a {
@@ -21,7 +18,15 @@ a {
     color: inherit;
 }
 
-/* Navbar */
+.top-banner {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
 header {
     background-color: white;
     box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
@@ -45,7 +50,7 @@ header {
     cursor: default;
 }
 
-.logo {
+.logo .tech {
     color: #007bff;
 }
 
@@ -77,7 +82,7 @@ header {
 
 /* Nav buttons with background icons */
 .icon-btn {
-    width: 24px;
+     width: 24px;
     height: 24px;
     border: none;
     cursor: pointer;
@@ -87,6 +92,7 @@ header {
     filter: grayscale(40%);
     transition: filter 0.3s;
     background-color: transparent;
+    
 }
 
 .icon-btn:hover,
@@ -274,8 +280,30 @@ footer {
     padding-top: 1rem;
     user-select: none;
 }
+/* زر الهامبورغر */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 101; /* فوق القائمة */
+}
 
-@media (max-width: 900px) {
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #222;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1100px) {
     .nav-list {
         gap: 1rem;
         font-size: 0.9rem;
@@ -291,34 +319,25 @@ footer {
         max-width: 100%;
         padding: 0 1rem;
     }
+    .footer-links {
+        gap: 6rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 }
 
-@media (max-width: 600px) {
-    .header-container {
-        flex-wrap: wrap;
-        height: auto;
-        gap: 0.5rem;
-    }
-
-    .nav {
-        order: 3;
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .nav-list {
-        justify-content: center;
-        flex-wrap: wrap;
+@media (max-width: 965px) {
+    .footer-links {
         gap: 1rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
+}
+@media (max-width: 768px) {
+    
 
-    .nav-icons {
-        order: 2;
-        gap: 0.7rem;
-        width: 100%;
-        justify-content: center;
-    }
 
+    
     .mission-title {
         font-size: 1.8rem;
     }
@@ -335,10 +354,160 @@ footer {
     .feature h3 {
         font-size: 1.1rem;
     }
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
+    }
+
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
+    }
+    .footer-links {
+        gap: 3rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 }
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
 
 @media (max-width: 400px) {
     .feature p {
         font-size: 0.9rem;
     }
+    top-banner {
+        background-color: #007bff;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 0.4rem 1rem;
+        font-weight: 100%;
+        font-size: 1rem;
+    }
+
+    header {
+
+        font-weight: 100%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .navbar {
+        max-width: 100%;
+        margin: auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-weight: 100%;
+        font-size: 1.4rem;
+        cursor: default;
+    }
+
+    .nav-links {
+         position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px; /* تحت الهيدر */
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none; /* نخفيها */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* تظهر عند الضغط */
+    }
+
+    .hamburger {
+        display: flex; /* زر يظهر فقط في الموبايل */
+    }
+}
+
+/* حركة زر الهامبورغر عند الضغط */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+    .nav-icons {
+
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .icon-btn {
+        width: 1.2rem;
+        height: 1.2rem;
+        border: none;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: grayscale(40%);
+        transition: filter 0.3s;
+        background-color: transparent;
+        margin: 2px;
+
+    
 }

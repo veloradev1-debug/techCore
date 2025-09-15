@@ -10,24 +10,37 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">Tech<span class="core">Core</span></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" class="active">Shop</a></li>
+  <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="tech">Tech</span><span class="core">Core</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
 
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-icons">
-        <button aria-label="Search" class="icon-btn search-btn"></button>
-        <button aria-label="User Account" class="icon-btn user-btn"></button>
-        <button aria-label="Shopping Cart" class="icon-btn cart-btn"></button>
-      </div>
-    </nav>
+                <li><a href="about.html">About Us</a></li>
 
-  </header>
+                <li><a href="contact.html">Contact</a></li>
+
+
+            </ul>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-btn search-btn"></a>
+                <button aria-label="User Account" class="icon-btn user-btn"></button>
+                <button aria-label="Shopping Cart" class="icon-btn cart-btn"></button>
+            </div>
+            <!-- زر الهامبورغر -->
+<div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+        </nav>
+
+
+    </header>
 
   <main class="main-content container" role="main">
     <section class="contact-head-section" aria-labelledby="contact-title">
@@ -42,13 +55,13 @@
 
       <form class="contact-form" aria-label="Send a Message" id="contactForm" novalidate>
         <h2>Send a Message</h2>
-        <label for="name">.Name:<span aria-hidden="true">*</span></label>
+        <label for="name">Name:<span aria-hidden="true"></span></label>
         <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
 
-        <label for="email">.Email:<span aria-hidden="true">*</span></label>
-        <input type="email" id="email" name="email" placeholder=".email@example.com" required autocomplete="email" />
+        <label for="email">Email:<span aria-hidden="true"></span></label>
+        <input type="email" id="email" name="email" placeholder="email@example.com" required autocomplete="email" />
 
-        <label for="message">.Message:<span aria-hidden="true">*</span></label>
+        <label for="message">Message:<span aria-hidden="true"></span></label>
         <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
 
         <button type="submit" class="btn-submit">Send Message</button>
@@ -58,44 +71,44 @@
   </main>
 
   <footer>
-    <div class="footer-main">
-      <div class="footer-logo-desc">
-        <div class="logo">Tech<span class="core">Core</span></div>
-        <p>Powering your passion with high-end computer parts and electronics.</p>
-      </div>
-      <div class="footer-links">
-        <div>
-          <h3>Shop</h3>
-          <ul>
-            <li><a href="shop.html">High-performance PCs</a></li>
-            <li><a href="shop.html">Internal Components</a></li>
-            <li><a href="shop.html">Monitors & Display</a></li>
-            <li><a href="shop.html">Accessories</a></li>
-          </ul>
+        <div class="footer-main">
+            <div class="footer-logo-desc">
+                <div class="logo">Tech<span class="core">Core</span></div>
+                <p>Powering your passion with high-end computer parts and electronics.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">High-performance PCs</a></li>
+                        <li><a href="#">Internal Components</a></li>
+                        <li><a href="#">Monitors & Display</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Deals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter" class="social twitter"></a>
+                        <a href="#" aria-label="Facebook" class="social facebook"></a>
+                        <a href="#" aria-label="Instagram" class="social instagram"></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3>Information</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Deals</a></li>
-          </ul>
+        <div class="footer-bottom">
+            &copy; 2025 TechCore. All Rights Reserved.
         </div>
-        <div>
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="#" aria-label="Twitter" class="social twitter"></a>
-            <a href="#" aria-label="Facebook" class="social facebook"></a>
-            <a href="#" aria-label="Instagram" class="social instagram"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 TechCore. All Rights Reserved.
-    </div>
-  </footer>
+    </footer>
 
   <script src="contact.js"></script>
 </body>
