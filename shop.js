@@ -77,14 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add click listeners to Buy Now buttons
-    productsGrid.addEventListener('click', e => {
-        if (e.target.classList.contains('buy-btn')) {
-            const productCode = e.target.getAttribute('data-product-code') || '';
-            alert(`You clicked to buy product: ${productCode}`);
-            // Here you can expand with add to cart logic, etc.
-        }
-    });
+   
 
     // Initial filter to set products display correctly
     filterProducts();
@@ -134,3 +127,9 @@ const closeBtn = document.querySelector('.close-filter');
 if (closeBtn) {
   closeBtn.addEventListener('click', () => sidebar.classList.remove('active'));
 }
+document.querySelectorAll(".buy-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const code = btn.getAttribute("data-product-code");
+    window.location.href = `product.html?code=${code}`;
+  });
+});
