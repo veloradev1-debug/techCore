@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="price-new">$${formatNumber(p.price)}</span>
             <span class="price-old">$${formatNumber(p.oldPrice || p.price)}</span>
           </div>
-          <div class="product-meta"><p><strong>SKU:</strong> ${id}</p></div>
+         
           <div style="margin-top:1rem;">
             <button id="orderNowBtn" class="buy-btn">Order Now</button>
-            <a href="shop.html" class="buy-btn" style="background:linear-gradient(160deg,#666,#444);margin-left:0.6rem;">Back to Shop</a>
+            <a href="shop.html" class="buy-btn" style="background:linear-gradient(160deg,#666,#444);margin-left:0.1rem;">Back to Shop</a>
           </div>
         </div>
       </div>

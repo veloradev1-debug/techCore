@@ -184,11 +184,24 @@ body {
     min-height: 260px;
   }
   .product-detail-info .buy-btn {
-  padding: 0.75rem 1.6rem;
-  font-size: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
   border-radius: 10px;
 }
 
+}
+@media (max-width: 370px) {
+  .product-detail-container {
+    grid-template-columns: 1fr;
+  }
+  .product-detail-image {
+    min-height: 260px;
+  }
+  .product-detail-info .buy-btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.7rem;
+  border-radius: 10px;
+}
 }
 /* --- تعديل تأثير hover للأزرار --- */
 
