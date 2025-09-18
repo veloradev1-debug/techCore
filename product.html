@@ -1,199 +1,122 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Details</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCore - Product</title>
+
+  <!-- نستخدم shop.css كأساس (التصميم الأصلي) ثم نضع overrides خاصة بهذه الصفحة -->
+  <link rel="stylesheet" href="shop.css" />
   <link rel="stylesheet" href="product.css" />
 </head>
 <body>
-  <!-- Header -->
-   <header>
-        <nav class="navbar">
-            <div class="logo">
-                <span class="tech">Tech</span><span class="core">Core</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-
-                <li><a href="about.html">About Us</a></li>
-
-                <li><a href="contact.html">Contact</a></li>
-
-
-            </ul>
-            <div class="nav-icons">
-                <a href="shop.html" class="icon-btn search-btn"></a>
-                <button aria-label="User Account" class="icon-btn user-btn"></button>
-                <button aria-label="Shopping Cart" class="icon-btn cart-btn"></button>
-            </div>
-            <!-- زر الهامبورغر -->
-<div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-        </nav>
-
-
-    </header>
-
-
-  <!-- Product Details -->
-  <main class="container product-page">
-    <section class="product-details">
-      <div class="product-image">
-        <img id="productImg" src="" alt="Product Image">
+  <!-- Header (مطابق لصفحة المتجر) -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <span class="tech">Tech</span><span class="core">Core</span>
       </div>
-      <div class="product-info">
-        <h1 id="productTitle">Product Title</h1>
-        <p id="productDescription" class="description">
-          Here will be the product description loaded dynamically.
-        </p>
-        <div class="price-box">
-          <span id="productPrice" class="price"></span>
-        </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="shop.html" class="icon-btn search-btn" aria-label="search"></a>
+        <button aria-label="User Account" class="icon-btn user-btn"></button>
+        <button aria-label="Shopping Cart" class="icon-btn cart-btn"></button>
       </div>
-    </section>
 
-    <!-- Order Form -->
-    <section class="order-form">
-      <h2>Place Your Order</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" required>
-        </div>
+      <div class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
 
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" required>
-        </div>
-
-        <div class="form-group">
-          <label for="address">Address</label>
-          <textarea id="address" rows="3" required></textarea>
-        </div>
-
-        <button type="submit" class="btn">Confirm Order</button>
-      </form>
-      <a href="shop.html" class="back-btn">← Back to Shop</a>
+  <!-- Main content -->
+  <main class="main-content" style="padding-top:1.5rem;">
+    <section id="productDetail" class="products-section" aria-labelledby="product-title">
+      <!-- سيتم ملؤها عبر product.js -->
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Modal (بطاقة الطلب) — مخفية افتراضياً -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+      <span class="close-btn" id="closeModal" title="Close">&times;</span>
+
+      <!-- محتوى المودال الافتراضي: فورم الطلب -->
+      <div id="modalBody">
+        <h2 id="orderTitle">Complete Your Order</h2>
+        <form id="orderForm">
+          <input type="hidden" id="productIdInput" name="productId" />
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+
+          <div style="display:flex; gap:0.6rem; margin-top:0.8rem;">
+            <button type="submit" class="buy-btn submit-btn">Confirm Order</button>
+            <button type="button" class="buy-btn" id="cancelOrderBtn" style="background:linear-gradient(160deg,#999,#777);">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (مطابق لshop.html) -->
   <footer>
-        <div class="footer-main">
-            <div class="footer-logo-desc">
-                <div class="logo">Tech<span class="core">Core</span></div>
-                <p>Powering your passion with high-end computer parts and electronics.</p>
-            </div>
-            <div class="footer-links">
-                <div>
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="#">High-performance PCs</a></li>
-                        <li><a href="#">Internal Components</a></li>
-                        <li><a href="#">Monitors & Display</a></li>
-                        <li><a href="#">Accessories</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Information</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Deals</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Twitter" class="social twitter"></a>
-                        <a href="#" aria-label="Facebook" class="social facebook"></a>
-                        <a href="#" aria-label="Instagram" class="social instagram"></a>
-                    </div>
-                </div>
-            </div>
+    <div class="footer-main">
+      <div class="footer-logo-desc">
+        <div class="logo">Tech<span class="core">Core</span></div>
+        <p>Powering your passion with high-end computer parts and electronics.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="#">High-performance PCs</a></li>
+            <li><a href="#">Internal Components</a></li>
+            <li><a href="#">Monitors & Display</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-            &copy; 2025 TechCore. All Rights Reserved.
+        <div>
+          <h3>Information</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Deals</a></li>
+          </ul>
         </div>
-    </footer>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter" class="social twitter"></a>
+            <a href="#" aria-label="Facebook" class="social facebook"></a>
+            <a href="#" aria-label="Instagram" class="social instagram"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 TechCore. All Rights Reserved.
+    </div>
+  </footer>
 
-  <script>
-    const products = {
-      product1: {
-        title: "Acer Predator X38 37.5″ UWQHD+",
-        price: "$1199",
-         desc: "A very powerful screen for gaming enthusiasts with high resolution and perfect curvature",
-        img: "image/Acer Predator X38 37.5″ UWQHD+.jpg"
-      
-      },
-      product2: {
-        title: "ASUS ROG Swift PG259QN 24.5″ FHD",
-        price: "$599",
-        desc: "Very powerful screen with high resolution and color gradation suitable for gaming and high definition viewing.",
-        img: "image/ASUS ROG Swift PG259QN 24.5″ FHD.png"
-      },
-      product3: {
-        title: "ASUS ROG Strix X670E-F Gaming WiFi (AMD AM5)",
-        price: "$189",
-desc: "Advanced motherboard for next-generation AMD processors with WiFi 6E support.",        img: "image/ASUS ROG Strix X670E-F Gaming WiFi (AMD AM5).jpg"
-      },
-      product4: {
-        title: "Corsair K100 RGB",
-        price: "$189",
-       desc: "A mechanical keyboard with stunning RGB lighting and professional performance for gamers.",
-        img: "image/Corsair K100 RGB.jpg"
-      },
-      product5: {
-        title: "G.SKILL Trident Z5 RGB (DDR5-6000، 32GB)",
-        price: "$249",
-       desc: "Fast DDR5 RAM with RGB lighting and great performance for gaming and work.",
-        img: "image/G.SKILL Trident Z5 RGB (DDR5-6000، 32GB).webp"
-      },
-      product6: {
-        title: "Logitech G915 TKL",
-        price: "$249",
-        desc: "Slim wireless keyboard with RGB lighting and comfortable use.",
-        img: "image/Logitech G915 TKL.webp"
-      },
-      product7: {
-        title: "MSI MEG Z790 ACE (Intel LGA1700)",
-        price: "$249",
-       desc: "A powerful motherboard for Intel processors with excellent cooling and support for the latest technologies.",
-        img: "image/MSI MEG Z790 ACE (Intel LGA1700.webp"
-      },
-      product8: {
-        title: "Razer DeathAdder V3 Pro",
-        price: "$249",
-       desc: "A lightweight gaming mouse with high precision and professional performance.",
-        img: "image/Razer DeathAdder V3 Pro.jpg"
-      }
-    };
-
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get("id");
-
-    if (products[productId]) {
-      document.getElementById("productTitle").textContent = products[productId].title;
-      document.getElementById("productPrice").textContent = products[productId].price;
-      document.getElementById("productDescription").textContent = products[productId].desc;
-      document.getElementById("productImg").src = products[productId].img;
-    } else {
-      document.querySelector(".product-page").innerHTML = "<p class='not-found'>⚠️ المنتج غير موجود.</p>";
-    }
-  </script>
+  <!-- ملف الجافاسكربت المنفصل -->
   <script src="product.js"></script>
 </body>
 </html>
-
